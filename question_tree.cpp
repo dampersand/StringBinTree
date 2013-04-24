@@ -1,4 +1,9 @@
+#ifndef QUESTION_TREE_CPP
+#define QUESTION_TREE_CPP
 #include "question_tree.h"
+#include <iostream>
+#include <sstream>
+#include <conio.h>
 
 
 void QuestionTree::make(string file)
@@ -52,6 +57,16 @@ void QuestionTree::make(string file)
                 break;
         }
     }
+    return;
+}
+
+void QuestionTree::removeTree(BinNode* eNode)
+{
+    if (eNode->yes != NULL)
+        QuestionTree::removeTree(eNode->yes);
+    if (eNode->no != NULL)
+        QuestionTree::removeTree(eNode->no);
+    delete eNode;
     return;
 }
 
@@ -167,14 +182,14 @@ BinNode* QuestionTree::buildTree(BinNode* entry, string data)//Build the entire 
         cout << "Enter your category.\n" << ">";
         cin.sync();
         getline(cin, nextData); //...get the category's data...
-        entry = nodeMaker(nextData); //... and make a new node from it.
+        entry = nodeMaker(entry, nextData); //... and make a new node from it.
     }
     else if (userResponse == 1) //If they've asked for a question...
     {
         cout << "Enter your question. \n" << ">";
         cin.sync();
         getline(cin, nextData); //...get the question's data...
-        entry = nodeMaker(nextData); //...and make a new node from it.
+        entry = nodeMaker(entry, nextData); //...and make a new node from it.
 
 
         cout << "\n\nAnswer is yes to question \"" << nextData << "\"\n";
@@ -190,9 +205,9 @@ BinNode* QuestionTree::buildTree(BinNode* entry, string data)//Build the entire 
 }
 
 
-BinNode* QuestionTree::nodeMaker(string data)
+BinNode* QuestionTree::nodeMaker(BinNode* nNode, string data)
 {
-    BinNode* nNode = new(BinNode);
+    nNode = new(BinNode);
     nNode->val = data;
     nNode->yes = NULL;
     nNode->no = NULL;
@@ -200,3 +215,4 @@ BinNode* QuestionTree::nodeMaker(string data)
     return(nNode);
 }
 
+#endif // QUESTION_TREE_CPP

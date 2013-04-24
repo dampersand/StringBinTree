@@ -7,11 +7,17 @@ class QuestionTree {
 public:
     QuestionTree(string name)
     {
-        root = nodeMaker(name);
+        root = nodeMaker(root, name);
+    }
+    ~QuestionTree()
+    {
+        removeTree(root);
     }
     void make(string file);
 
 private:
+
+    void removeTree(BinNode* eNode);
 
         /* method to ask a series of questions (Task #3)
      */
@@ -30,8 +36,8 @@ private:
 
     BinNode* buildTree(BinNode* entry, string data);//Build the entire tree.
     //a function to construct an ENTIRE BinNode pointer
-    BinNode* nodeMaker(string data);
-    BinNode *root;
+    BinNode* nodeMaker(BinNode* nNode, string data);
+    BinNode* root;
 };
 
 #endif

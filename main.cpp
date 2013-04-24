@@ -1,9 +1,5 @@
 #include <iostream>
-#include <string>
-#include <conio.h>
-#include <sstream>
 #include "question_tree.h"
-#include "question_tree.cpp"
 
 using namespace std;
 

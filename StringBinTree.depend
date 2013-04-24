@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1366838779 source:d:\programming\projects\binary tree\stringbintree\main.cpp
+	<iostream>
+	"question_tree.h"
+
+1366839766 d:\programming\projects\binary tree\stringbintree\question_tree.h
+	"node.h"
+
+1366572975 d:\programming\projects\binary tree\stringbintree\node.h
+	<cstddef>
+	<string>
+
+1366838702 d:\programming\projects\binary tree\stringbintree\question_tree.cpp
+	"question_tree.h"
+	<iostream>
+	<sstream>
+	<conio.h>
+
+1366839753 source:d:\programming\projects\binary tree\stringbintree\question_tree.cpp
+	"question_tree.h"
+	<iostream>
+	<sstream>
+	<conio.h>
+
